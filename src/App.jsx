@@ -3,7 +3,7 @@ import './App.css'
 import useRandomWord from '../hooks/UseRandomWord';
 
 const word_length=5;
-const tries=5;
+const tries=6;
 function App() {
   const [gameCount, setGameCount]= useState(0)
   const {word, clue } = useRandomWord(gameCount)
@@ -84,7 +84,7 @@ function App() {
         <span className="italic">{clue || "Loading clue..."}</span>
       </div>
 
-      <p className="text-lg font-semibold h-8 mb-2 text-slate-700">
+      <p className="text-2xl font-semibold h-8 mb-4 text-slate-700 ">
         {message}
       </p>
       
@@ -102,7 +102,7 @@ function App() {
 
       {gameOver && (
         <button 
-          className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 active:scale-95 transition-all"
+          className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-md hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 active:scale-95 transition-all cursor-pointer"
           onClick={() => {
             setMessage("Fetching a word :)");
             setGameCount(c => c + 1);
@@ -111,6 +111,12 @@ function App() {
           Play Again
         </button>
       )}
+      {!(gameOver) && <button className="px-8 py-3 bg-red-600 text-white font-bold rounded-lg shadow-md hover:bg-red-700 focus:ring-4 focus:ring-red-300 active:scale-95 transition-all cursor-pointer" 
+      onClick={(e)=>{
+        setMessage("Fetching a word :)");
+        setGameCount(c => c + 1);
+        e.target.blur();
+             }}>Restart</button>}
     </div>
   );
 }
