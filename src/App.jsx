@@ -85,8 +85,8 @@ function App() {
     setGuesses(newGuesses);
     for(let i=0;i<turn; i++){
       if (currentGuess === newGuesses[i])
-        setMessage(`Already Guessed! Try a new word.`);
-      return;
+        { setMessage(`Already Guessed! Try a new word.`);
+      return;}
     }
     const newColors = [...guessColors];
     newColors[turn] = colors;
