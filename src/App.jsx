@@ -8,8 +8,8 @@ import { evaluateGuess, getWordScore } from '../hooks/gameScore';
 const tries=6;
 const level_settings = {
   easy: { time: 300 },
-  medium: { time: 180 },
-  hard: { time: 120 }
+  medium: { time: 210 },
+  hard: { time: 180 }
 };
 function App() {
   const [gameState, setGameState] = useState('MENU');
